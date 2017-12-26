@@ -1,0 +1,101 @@
+<!--列表-->
+<view class="main">
+    <view class="top_pic_box">
+        <view class="pic_img">
+            <image src="{{musicList.coverImgUrl}}" />
+        </view>
+        <view class="info">
+            <view class="left_pic">
+                <image src="{{musicList.coverImgUrl}}" />
+
+                <view class="play_quantity">
+                    <i class="iconfont icon-erji"></i>
+                    {{musicList.playCount}}
+                </view>
+                <i class="iconfont icon-info"></i>
+            </view>
+
+            <view class="right_name">
+                <view class="title">{{musicList.name}}</view>
+                <router-link to="/ranking" class="user_box">
+                    <view class="user_pic" >
+                        <image src="{{musicList.creator.avatarUrl}}" />
+                    </view>
+                    <text class="user_name">{{musicList.creator.nickname}}</text>
+                </router-link>
+            </view>
+        </view>
+
+        <view class="nav_action">
+            <view class="option" hover-class="navigator-hover">
+                <i class="iconfont icon-roundadd"></i>
+                <view class="val">{{musicList.subscribedCount}}</view>
+            </view>
+
+            <view class="option" hover-class="navigator-hover">
+                <i class="iconfont icon-comment"></i>
+                <view class="val">{{musicList.commentCount}}</view>
+            </view>
+
+            <view class="option" hover-class="navigator-hover">
+                <i class="iconfont icon-share"></i>
+                <view class="val">{{musicList.shareCount}}</view>
+            </view>
+
+            <view class="option" hover-class="navigator-hover">
+                <i class="iconfont icon-down"></i>
+                <view class="val">下载</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="content">
+        <!--选择-->
+        <view class="filter">
+            <view class="play_all" catchtap="playerAll" hover-class="navigator-hover">
+                <i class="play_icon iconfont icon-cplay1"></i>
+                播放全部
+                <i class="c-9">(666)</i>
+            </view>
+
+            <view class="multiselect" hover-class="navigator-hover">
+                <i class="iconfont icon-sortlight"></i>
+                多选
+            </view>
+        </view>
+
+
+        <!--列表-->
+        <view class="list {{player.isPlay?'mb100':''}}">
+            <view class="item" wx:for="{{musicList.tracks}}"  hover-class="navigator-hover">
+                <view class="warpper" bindtap="clickMusic" data-id="{{index}}" data-mid="{{item.id}}" data-pic="{{item.al.picUrl}}" data-epname="{{item.al.name}}" data-singer="{{item.ar[0].name}}" data-title="{{item.name}}">
+                    <view class="left">
+                        <i wx:if="{{player.playId==index}}" class="iconfont icon-notification"></i>
+                        <text wx:else>{{index+1}}</text>
+                    </view>
+
+                    <view class="middle">
+                        <view class="m_name ellipsis">
+                          {{item.name}}
+                        </view>
+                        <view class="u_name ellipsis">
+                            {{item.ar[0].name}}
+                        </view>
+                    </view>
+                </view>
+
+
+                <view class="right" hover-class="navigator-hover">
+                    <i class="iconfont icon-moreandroid "></i>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+
+    <!--音乐播放器-->
+    <import src="../../template/templates.wxml"/>
+    <template is="{{player.isPlay==true?'musicPlayer':''}}" data="{{player}}"></template>
+
+</view>

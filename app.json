@@ -1,0 +1,19 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/music/music",
+    "pages/mInfo/mInfo",
+    "pages/vInfo/vInfo",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#8fdac6",
+    "navigationBarTitleText": "TGYY",
+    "navigationBarTextStyle":"#fff"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

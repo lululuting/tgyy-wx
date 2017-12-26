@@ -1,0 +1,156 @@
+
+<wxs src="./../../utils/tools.wxs" module="tools"/>
+
+<!--视频-->
+<view class="video_box">
+    <video id="myVideo" src="{{src}}" danmu-list="{{danmuList}}" page-gesture enable-danmu danmu-btn controls></video>
+
+    <!--发送弹幕-->
+    <view  class="emit_danmu_box">
+        <view class="left">
+            <view class="position">
+                <i class="selected iconfont icon-d-scroll"></i>
+
+                <view class="select_position">
+                    <i position-data="1" class="iconfont icon-d-top"></i>
+                    <i position-data="2" class="iconfont icon-d-scroll" style="outline-color: rgb(51, 51, 51);"></i>
+                    <i position-data="3" class="iconfont icon-d-bottom"></i>
+                </view>
+            </view>
+        </view>
+
+        <view class="select_color">
+            <i class="palette-color-picker-button"></i>
+        </view>
+
+        <input placeholder-style="color:#fff" placeholder="发送弹幕" class="danmu_text" />
+        <view class="right waves-effect waves-light">
+            <i class="iconfont icon-forwardfill"></i>
+        </view>
+    </view>
+
+
+    <!--等待加载播放-->
+    <view class="load_play" wx:if="{{loadPlay}}" style="background-image: url('http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl={{infoData.pic}}')">
+        <view class="video_time">{{tools.formatPlayTime(videoTime)}}</view>
+        <view bindtap="clickLoadPlay" class="iconfont icon-bofang"></view>
+    </view>
+
+</view>
+
+
+<!--操作-->
+<ul class="video_action_box">
+    <li class="c-f09d9d" hover-class="navigator-hover">
+        <i class="iconfont icon-appreciate"></i>
+        <i class="num">666</i>
+    </li>
+
+    <li class="c-ffbe4a" hover-class="navigator-hover">
+        <i class="iconfont icon-favor"></i>
+        <i class="num">{{infoData.stat.favorite}}</i>
+    </li>
+
+    <li class="c-62c7db" hover-class="navigator-hover">
+        <i class="iconfont icon-share"></i>
+        <i>分享</i>
+    </li>
+    <li class="c-8fdac6" hover-class="navigator-hover">
+        <a href="http://www.jijidown.com/video/av16016348">
+            <i class="iconfont icon-down"></i>
+            <i>缓存</i>
+        </a>
+    </li>
+</ul>
+
+<!--信息-->
+<view  class="video_info_box">
+    <text class="title">{{infoData.title}}</text>
+
+    <view class="page_view">
+        <view class="left_data">
+            <view class="item">
+                <i class="iconfont icon-bofang"></i>
+                {{tools.formatPlayNum(infoData.stat.view)}}
+            </view>
+
+            <view class="item">
+                <i class="iconfont icon-danmukai"></i>
+                {{tools.formatPlayNum(infoData.duration)}}
+            </view>
+        </view>
+        <i class="open_icon iconfont icon-unfold {{openInfo?'icon-fold':''}}" bindtap="openInfo"></i>
+    </view>
+    <view class="info_box" style="height:{{openInfo?infoHeight:'80'}}rpx">
+        <view class="info">
+            {{infoData.desc}}
+        </view>
+
+        <view class="crumbs_nav">
+            <view class="di">
+                <navigator url="">主页</navigator>
+                <navigator url="">{{infoData.tname}}</navigator>
+                av{{infoData.aid}}
+            </view>
+
+            <text class="fr">UP主: {{infoData.owner.name}}</text>
+        </view>
+    </view>
+</view>
+
+<!--评论-->
+<view class="comment_box">
+    <view class="title">
+        评论 <text class="c-9">({{commentsCount}})</text>
+    </view>
+    <view class="comment_list">
+        <view class="item" wx:for="{{tools.formatSlice(commentsData)}}">
+            <navigator  url="" class="user_pic">
+                <image src="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl={{item.member.avatar}}"/>
+            </navigator>
+
+            <view class="user_name_box">
+                <view class="user_name">{{item.member.uname}}</view>
+                <view class="user_time">{{item.ctime}}</view>
+            </view>
+
+            <view class="praise">
+                <i class="iconfont icon-appreciate"></i>
+                <text class="num">{{item.like}}</text>
+            </view>
+
+            <image url="" class="text">{{item.content.message}}</image>
+        </view>
+    </view>
+    <!--点击更多评论-->
+    <view class="more_comment_btn" wx:if="{{commentsData.length>5}}">点击查看更多评论</view>
+    <view class="more_comment_btn" wx:elif="{{commentsData.length==0}}">暂时还没有人评论哦！</view>
+
+</view>
+
+<!--视频推荐-->
+<view class="related_video_box">
+    <view class="title">视频相关</view>
+    <view class="video_list">
+        <navigator url='../vInfo/vInfo?aid={{item.aid}}' class="item router-link-active" wx:for="{{tools.formatSlice(videoCorrelation)}}">
+            <view class="left_video_pic">
+                <image src="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl={{item.pic}}"/>
+            </view>
+
+            <view class="right_video_info">
+                <text class="video_title">{{item.title}}</text>
+                <view class="video_data">
+                    <text>UP：{{item.owner.name}}</text>
+                </view>
+                <view class="video_data">
+                    <text class="player_num">播放：{{item.stat.view}}</text>
+                    <text class="text_num">弹幕：{{item.stat.danmaku}}</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+
+<!--尾部-->
+<import src="../../template/templates.wxml"/>
+<template is="footer"></template>

@@ -1,0 +1,344 @@
+/**index.wxss**/
+.header_box{
+    background-color: #8fdac6;
+    color: #fff;
+    padding: 0 20rpx;
+}
+
+.header_box .header_top{
+    display: flex;
+    align-items:center;/*垂直居中*/
+    justify-content: center;/*水平居中*/
+    text-align: center;
+    height: 100rpx;
+}
+
+.header_top .menu{
+    flex: .5;
+}
+.header_top .user{
+    flex: 1.5;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_box .header_top .search{
+    height:55rpx;
+    line-height: 55rpx;
+    flex: 2;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 40rpx;
+    text-align: right;
+    padding-right:20rpx;
+}
+
+
+.header_box .user{
+    font-size: 28rpx;
+}
+.header_box .user .pic{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+
+
+.header_box .header_nav{
+    display: flex;
+    height: 100rpx;
+    line-height: 100rpx;
+    justify-content: center;/*水平居中*/
+    align-items:center;/*垂直居中*/
+    text-align: center;
+}
+.header_box .header_nav .item{
+    width: 25%;
+    font-size: 24rpx;
+}
+
+
+
+/*轮播图*/
+swiper {
+    height: 360rpx;
+}
+
+
+
+.classify_nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 120rpx;
+    margin: 20rpx 0;
+}
+
+.classify_nav .nav_option{
+    width: 25%;
+}
+.classify_nav .nav_option .tit{
+    display: block;
+    font-size: 28rpx;
+}
+
+
+
+
+
+
+
+.modular_box{
+    overflow: hidden;
+}
+
+/*列表标题*/
+.modular_box .title_box{
+    padding: 0 20rpx;
+    height: 100rpx;
+    display: flex;
+    space-between;
+    align-items: center;
+}
+.modular_box .title_box .left,
+.modular_box .title_box .right{
+    flex: 1;
+}
+
+
+
+
+
+
+.title_box .left .iconfont{
+    margin-right: 10rpx;
+    color: #663300;
+    font-size: 48rpx;
+}
+.modular_box .title_box .right{
+    text-align: right;
+}
+.title_box .right .iconfont{
+    font-size: 28rpx;
+}
+
+
+
+/*列表图片*/
+.list_box{
+    display: flex;
+    flex-wrap:wrap;
+    padding: 0 10rpx;
+}
+.list_box .item {
+    width: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+    padding: 0 10rpx;
+}
+.list_box .item .pic_box {
+    width: 100%;
+    height: 200rpx;
+    position: relative;
+    overflow: hidden;
+    background: #f2f2f2;
+}
+.list_box .item .pic_box image {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+/*infon介绍*/
+.list_box .item .info {
+    padding: 10rpx;
+    background: #fff;
+    overflow: hidden;
+}
+.list_box .item .info .title {
+    font-size: 28rpx;
+    line-height: 40rpx;
+    margin-bottom: 10rpx;
+    height: 74rpx;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.list_box .item .info .up_name {
+    height: 30rpx;
+    line-height: 30rpx;
+    overflow: hidden;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.list_box .item .up {
+    width: 60%;
+    float: left;
+    line-height: 30rpx;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.list_box .item .look_num {
+    text-align: right;
+    display: inline-block;
+    width: 40%;
+    line-height: 30rpx;
+    float: left;
+    overflow: hidden;
+    font-size: 20rpx;
+}
+.list_box .item .up_name .iconfont {
+    font-size: 30rpx;
+    line-height: 30rpx;
+}
+
+
+
+
+
+
+/*菜单*/
+.menu_box{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    transition: all .5s;
+}
+.menu_mask{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.6);
+    transition: all 1s;
+}
+.menu_box .menu_con{
+    position: absolute;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    width: 70%;
+    min-height: 100%;
+    background: #fff;
+}
+
+
+.menu_box .user_box{
+    width: 100%;
+    padding: 40rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: url(https://github.com/lululuting/tgyy/blob/master/src/assets/images/user_box_bg_0123asd.png?raw=true) #8fdac6 50% 50% no-repeat;
+    background-size: cover;
+}
+.menu_box .user_box .top_user_box{
+    height: 150rpx;
+    line-height: 150rpx;
+}
+
+.menu_box .user_box .top_user_box .user_pic{
+    width: 150rpx;
+    height: 150rpx;
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 4rpx solid #fff;
+}
+.menu_box .user_box .top_user_box .action_box {
+    float: right;
+}
+.menu_box .user_box .top_user_box .action_box .iconfont{
+    display: inline-block;
+    overflow: hidden;
+    font-size: 40rpx;
+    line-height: 40rpx;
+    color: #fff;
+    margin-left: 30rpx;
+    padding: 10rpx;
+    border: 4rpx solid #fff;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.menu_box .user_box .bottom_box{
+    color: #fff;
+    margin-top:20rpx;
+}
+.menu_box .user_box .bottom_box .lv_box{
+    padding: 2rpx 5rpx;
+    background-color: rgba(0, 134, 179, 0.1);
+    border: 1rpx solid #fff;
+    border-radius: 6rpx;
+    display: inline-block;
+    margin-left: 10rpx;
+    font-size: 20rpx;
+}
+
+.menu_box .user_box .bottom_box .level_box {
+    padding: 5rpx 10rpx;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1rpx solid #fff;
+    border-radius: 5rpx;
+    display: inline-block;
+    font-size: 20rpx;
+    margin: 15rpx 0;
+}
+.menu_box .user_box .bottom_box .level_box .level {
+    color: #8fdac6;
+}
+.menu_box .user_box .bottom_box .property_box {
+    font-size: 24rpx;
+}
+
+.menu_box .nav_list{
+    padding: 20rpx 0;
+}
+
+.menu_box .nav_list navigator{
+    color: #666;
+    display: block;
+    padding: 20rpx 0;
+}
+
+.menu_box .nav_list .iconfont{
+    margin: 0 20rpx;
+}
+
+
+
+.menu_mask.show{
+    opacity: 1;
+}
+
+.menu_box.show{
+    -webkit-transform: translate3d(-0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+

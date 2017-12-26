@@ -1,0 +1,37 @@
+
+<!--页脚-->
+<template name="footer">
+    <view class="weui-footer">
+        <view class="weui-footer__links">
+            <navigator url="" class="weui-footer__link">tgyy</navigator>
+        </view>
+        <text class="weui-footer__text">Copyright © 2008-2016 tgyy.com</text>
+    </view>
+</template>
+
+
+
+<!--播放器-->
+<template name="musicPlayer">
+    <view class="m_player">
+        <navigator url="../mInfo/mInfo" class="box m_pic" hover-class="navigator-hover">
+            <image src="{{player.coverImgUrl}}" />
+        </navigator>
+
+        <navigator url="../mInfo/mInfo" class="m_info" hover-class="navigator-hover">
+            <view class="m_name ellipsis">{{player.title}}</view>
+            <view class="m_singer ellipsis">{{player.singer}}</view>
+        </navigator>
+
+        <view class="m_action">
+            <view class="box switch" catchtap="playSwitch" hover-class="navigator-hover">
+                <i wx:if="{{player.playSwitch==true}}" class="iconfont icon-bofangzanting"></i>
+                <i wx:else class="iconfont icon-bofang"></i>
+            </view>
+
+            <view class="box list"  hover-class="navigator-hover">
+                <i class="iconfont icon-bofangliebiao"></i>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,301 @@
+<wxs src="./../../utils/tools.wxs" module="tools"/>
+
+<!-- 头部 -->
+<view class="header_box">
+    <view class="header_top">
+        <view class='menu' bindtap="menuSwitch" hover-class="navigator-hover">
+            <i class="iconfont icon-sort"></i>
+        </view>
+        <view class='user'>
+            <image class="pic"  src='https://github.com/lululuting/tgyy/blob/master/src/assets/images/user_pic.png?raw=true'/>
+            <text>赵日天</text>
+        </view>
+        <view class="search">
+            <i class="iconfont icon-search"></i>
+        </view>
+    </view>
+
+    <ul class='header_nav'>
+        <li class='item'>首页</li>
+        <li class='item'>国产</li>
+        <li class='item'>日韩</li>
+        <li class='item'>欧美</li>
+        <li class='item'>套图</li>
+    </ul>
+</view>
+
+<!-- 轮播 -->
+<swiper indicator-dots="{{indicatorDots}}" indicator-active-color="{{indicatorActiveColor}}" indicator-color="{{indicatorColor}}" circular="{{circular}}"
+        autoplay="{{autoPlay}}" interval="{{interVal}}" duration="{{duration}}">
+    <block wx:for="{{bannerList}}">
+        <swiper-item>
+            <image src="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl={{item.pic}}" class="slide-image"/>
+        </swiper-item>
+    </block>
+</swiper>
+
+<!--导航-->
+<view class="classify_nav">
+    <navigator url="" class="nav_option ">
+        <i class="iconfont icon-rankfill c-ef7222"></i>
+        <text class="tit">排行</text>
+    </navigator>
+    <navigator url="../music/music"  class="nav_option">
+        <i class="iconfont icon-musicfill c-ffbe4a"></i>
+        <text class="tit">听歌</text>
+    </navigator>
+    <navigator url=""  class="nav_option">
+        <i class="iconfont icon-gaoqingshexiang c-62c7db"></i>
+        <text class="tit">高清</text>
+    </navigator>
+    <navigator url=""  class="nav_option">
+        <i class="iconfont icon-shoufei c-8fdac6"></i>
+        <text class="tit">氪金</text>
+    </navigator>
+</view>
+
+<!--国产-->
+<view class="modular_box">
+    <view class="title_box">
+        <view class="left">
+            <i class="iconfont icon-iconjiudianzhuanqu35"></i>国产
+        </view>
+
+        <view class="right">当前
+            <i class="num">{{gcList.length}}</i>
+            个视频 <i class="iconfont icon-gengduo"></i>
+        </view>
+    </view>
+
+    <view class="list_box">
+        <navigator url='../info/info?aid={{item.aid}}' class="item" wx:for="{{tools.formatSlice(gcList)}}">
+            <view class="pic_box">
+                <image alt="{{item.title}}" src="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl={{item.pic}}"/>
+            </view>
+
+            <view class="info">
+                <view class="title">{{item.title}}</view>
+                <view class="up_name">
+                    <text class="up">{{item.author}}</text>
+                    <view class="look_num">
+                        <i class="iconfont icon-yanjing"></i>
+                        {{tools.formatPlayNum(item.play)}}
+                    </view>
+                 </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+
+<!--日韩-->
+<view class="modular_box">
+    <view class="title_box">
+        <view class="left">
+            <i class="iconfont icon-niaoju"></i>日韩
+        </view>
+
+        <view class="right">当前
+            <i class="num">{{rhList.length}}</i>
+            个视频 <i class="iconfont icon-gengduo"></i>
+        </view>
+    </view>
+
+    <view class="list_box">
+        <navigator url='../info/vInfo?aid={{item.aid}}' class="item" wx:for="{{tools.formatSlice(rhList)}}">
+            <view class="pic_box">
+                <image alt="{{item.title}}" src="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl={{item.pic}}"/>
+            </view>
+
+            <view class="info">
+                <view class="title">{{item.title}}</view>
+                <view class="up_name">
+                    <text class="up">{{item.author}}</text>
+                    <view class="look_num">
+                        <i class="iconfont icon-yanjing"></i>
+                        {{tools.formatPlayNum(item.play)}}
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+
+</view>
+
+<!--欧美-->
+<view class="modular_box">
+    <view class="title_box">
+        <view class="left">
+            <i class="iconfont icon-ouzhou"></i>欧美
+        </view>
+
+        <view class="right">当前
+            <i class="num">{{omList.length}}</i>
+            个视频 <i class="iconfont icon-gengduo"></i>
+        </view>
+    </view>
+
+    <view class="list_box">
+        <navigator url='../vInfo/vInfo?aid={{item.aid}}' class="item" wx:for="{{tools.formatSlice(omList)}}">
+            <view class="pic_box">
+                <image alt="{{item.title}}" src="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl={{item.pic}}"/>
+            </view>
+
+            <view class="info">
+                <view class="title">{{item.title}}</view>
+                <view class="up_name">
+                    <text class="up">{{item.author}}</text>
+                    <view class="look_num">
+                        <i class="iconfont icon-yanjing"></i>
+                        {{tools.formatPlayNum(item.play)}}
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+
+</view>
+
+<!--套图-->
+<view class="modular_box">
+    <view class="title_box">
+        <view class="left">
+            <i class="iconfont icon-gongju-jingdian"></i>套图
+        </view>
+
+        <view class="right">当前
+            <i class="num">123</i>
+            个视频 <i class="iconfont icon-gengduo"></i>
+        </view>
+    </view>
+
+    <view class="list_box">
+        <navigator url='' class="item">
+            <view class="pic_box">
+                <image alt="【暴走大事件第五季】35大队长《校园有穷逼》螺旋走位巧夺助学金" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=575237941,3297646195&fm=27&gp=0.jpg"/>
+            </view>
+
+            <view class="info">
+                <view class="title">【暴走大事件第五季】35大队长《校园有穷逼》螺旋走位巧夺助学金</view>
+                <view class="up_name">
+                    <text class="up">暴走漫画</text>
+                    <text class="look_num">
+                        <i class="iconfont icon-yanjing"></i>38.0万
+                    </text>
+                </view>
+            </view>
+        </navigator>
+        <navigator url='' class="item">
+            <view class="pic_box">
+                <image alt="【暴走大事件第五季】35大队长《校园有穷逼》螺旋走位巧夺助学金" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=575237941,3297646195&fm=27&gp=0.jpg"/>
+            </view>
+
+            <view class="info">
+                <view class="title">【暴走大事件第五季】35大队长《校园有穷逼》螺旋走位巧夺助学金</view>
+                <view class="up_name">
+                    <text class="up">暴走漫画</text>
+                    <text class="look_num">
+                        <i class="iconfont icon-yanjing"></i>38.0万
+                    </text>
+                </view>
+            </view>
+        </navigator>
+
+        <navigator url='' class="item">
+            <view class="pic_box">
+                <image alt="【暴走大事件第五季】35大队长《校园有穷逼》螺旋走位巧夺助学金" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=575237941,3297646195&fm=27&gp=0.jpg"/>
+            </view>
+
+            <view class="info">
+                <view class="title">【暴走大事件第五季】35大队长《校园有穷逼》螺旋走位巧夺助学金</view>
+                <view class="up_name">
+                    <text class="up">暴走漫画</text>
+                    <text class="look_num">
+                        <i class="iconfont icon-yanjing"></i>38.0万
+                    </text>
+                </view>
+            </view>
+        </navigator>
+        <navigator url='' class="item">
+            <view class="pic_box">
+                <image alt="【暴走大事件第五季】35大队长《校园有穷逼》螺旋走位巧夺助学金" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=575237941,3297646195&fm=27&gp=0.jpg"/>
+            </view>
+
+            <view class="info">
+                <view class="title">【暴走大事件第五季】35大队长《校园有穷逼》螺旋走位巧夺助学金</view>
+                <view class="up_name">
+                    <text class="up">暴走漫画</text>
+                    <text class="look_num">
+                        <i class="iconfont icon-yanjing"></i>38.0万
+                    </text>
+                </view>
+            </view>
+        </navigator>
+
+    </view>
+</view>
+
+
+
+<!--菜单-->
+<view class="menu_box {{menuShow==true?'show':''}}">
+    <view class="menu_mask {{menuShow==true?'show':''}}" bindtap="menuSwitch"></view>
+    <view class="menu_con">
+        <view class="user_box">
+
+            <view class="top_user_box">
+                <navigator url=""  class="user_pic">
+                    <image src='https://github.com/lululuting/tgyy/blob/master/src/assets/images/user_pic.png?raw=true'/>
+                </navigator>
+
+                <view class="action_box">
+                    <i class="iconfont icon-taiyang"></i>
+                </view>
+
+            </view>
+
+            <view class="bottom_box">
+                <view>
+                    赵日天
+                    <span class="lv_box">
+                        LV<i>1</i>
+                    </span>
+                </view>
+
+                <view class="level_box">
+                    <i class="level">新手上路</i>
+                </view>
+
+                <view class="property_box">
+                    <span>油箱：0.00 L</span>
+                </view>
+
+            </view>
+        </view>
+
+        <view class="nav_list">
+            <navigator url="" class="">
+                <i class="iconfont icon-home"></i>
+                首页
+            </navigator>
+
+            <navigator url="" class="">
+                <i class="iconfont icon-favor"></i>
+                我的收藏
+            </navigator>
+
+            <navigator url="" class="">
+                <i class="iconfont icon-skin"></i>
+                主题
+            </navigator>
+
+            <navigator url="" class="">
+                <i class="iconfont icon-settings"></i>
+                设置
+            </navigator>
+        </view>
+    </view>
+</view>
+
+<!--尾部-->
+<import src="../../template/templates.wxml"/>
+<template is="footer"></template>

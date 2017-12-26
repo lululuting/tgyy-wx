@@ -1,0 +1,66 @@
+<wxs src="./../../utils/tools.wxs" module="tools"/>
+
+<view class="music_details">
+    <!--背景-->
+    <view class="main_bg_images">
+        <image src="{{player.coverImgUrl}}" />
+    </view>
+
+    <view class="main_bg_color"></view>
+
+    <view class="main">
+        <!--播放器界面-->
+        <view class="player_view {{lrcSwitch==false?'show':''}}">
+            <!--播放机指针-->
+            <view class="switch {{player.playSwitch==false?'load':''}}" >
+                <image src="http://idsolo.com/upload/qtz/bofangzheng.png"/>
+            </view>
+
+            <!--播放机cd封面-->
+            <view class="cover_box {{player.playSwitch==false?'paused':''}}" catch:tap="lrcSwitch">
+                <view class="cover_pic">
+                    <image wx:if="{{player.coverImgUrl}}" src="{{player.coverImgUrl}}" />
+                    <image wx:else src="http://idsolo.com/upload/qtz/morenfengmian.png" />
+                </view>
+            </view>
+
+            <!--喜欢， 下载，评论 ，更多-->
+            <view class="action_btn">
+                <view hover-class="navigator-hover" class="iconfont icon-like"></view>
+                <view hover-class="navigator-hover" class="iconfont icon-down"></view>
+                <view hover-class="navigator-hover" class="iconfont icon-icontalknew"></view>
+                <view hover-class="navigator-hover" class="iconfont icon-moreandroid"></view>
+            </view>
+        </view>
+
+        <!--歌词界面-->
+        <view  class="lyric_view {{lrcSwitch==true?'show':''}}" catch:tap="lrcSwitch">
+            <scroll-view scroll-y scroll-with-animation class="lyric_box" scroll-top="{{player.lrcH}}">
+                <view  wx:if="{{player.lrc!=='2' && player.lrc!=='3'}}" wx:for="{{player.lrc}}" class="lrc_item {{index==player.lrcI?'new':''}}">{{item.text}}</view>
+            </scroll-view>
+            <view class="onlrc" wx:if="{{player.lrc==2}}">纯音乐，请欣赏！</view>
+            <view class="onlrc" wx:if="{{player.lrc==3}}">木有歌词！</view>
+        </view>
+    </view>
+
+    <view class="player_box">
+        <!--进度条-->
+        <view class="progress_bar">
+            <view class="play_time">{{currentTime}}</view>
+            <view class="progress" catch:touchmove="progressTouch" catch:tap="progressTouch">
+                <i class="new_bar" style="width: {{progress}}px"></i>
+                <i class="buffer_bar"></i>
+            </view>
+            <view class="duration">{{duration}}</view>
+        </view>
+
+        <!--播放按钮-->
+        <view class="player_btn">
+            <view hover-class="navigator-hover" class="iconfont icon-xunhuan"></view>
+            <view hover-class="navigator-hover" class="iconfont icon-shangyishou"></view>
+            <view catchtap="playSwitch" hover-class="navigator-hover" class="iconfont icon-bofang1 play_btn {{player.playSwitch==false?'icon-cplay1':''}}"></view>
+            <view hover-class="navigator-hover" class="iconfont icon-xiayishou"></view>
+            <view hover-class="navigator-hover" class="iconfont icon-bofangliebiao"></view>
+        </view>
+    </view>
+</view>

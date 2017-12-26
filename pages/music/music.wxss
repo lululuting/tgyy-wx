@@ -1,0 +1,241 @@
+.top_pic_box{
+    position: relative;
+    height: 520rpx;
+    overflow: hidden;
+}
+.top_pic_box:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.top_pic_box .pic_img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -ms-filter: blur(20px);
+    filter: blur(20px);
+    z-index: -2;
+    background-image: url("http://idsolo.com/upload/qtz/morenfengmian.png");
+}
+.top_pic_box .info {
+    margin: 70rpx 0 50rpx;
+    width: 100%;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.top_pic_box .info .left_pic{
+    float: left;
+    height: 250rpx;
+    width: 250rpx;
+    margin-right: 40rpx;
+    position: relative;
+    background-image: url("http://idsolo.com/upload/qtz/morenfengmian.png");
+    background-position: 50% 50%;
+    background-size: cover;
+    color: #fff;
+}
+.top_pic_box .info .left_pic image{
+    position: absolute;
+    top:0;
+    left: 0;
+}
+
+.top_pic_box .info .left_pic .play_quantity{
+    font-size: 24rpx;
+    text-align: right;
+    padding: 10rpx 20rpx;
+}
+.top_pic_box .info .left_pic .play_quantity .iconfont{
+    font-size: 30rpx;
+    margin-right: 5rpx;
+}
+.top_pic_box .info .left_pic .icon-info {
+    font-size: 46rpx;
+    position: absolute;
+    right: 20rpx;
+    bottom: 10rpx;
+}
+
+
+
+
+.top_pic_box .info .right_name{
+    color: #fff;
+    font-size: 32rpx;
+}
+.top_pic_box .info .right_name .title {
+    font-size: 32rpx;
+    height: 90rpx;
+    margin-bottom: 20rpx;
+    overflow: hidden;
+}
+
+.top_pic_box .info .right_name .user_box .user_pic {
+    width: 60rpx;
+    height: 60rpx;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url("http://idsolo.com/upload/qtz/defaultAvatar.png");
+    background-size: cover;
+}
+.top_pic_box .info .right_name .user_box .user_name {
+    margin-left: 10rpx;
+    color: #fff;
+}
+.top_pic_box .info .right_name .user_box .user_name:after{
+     content: '\e617';
+     font-family:"iconfont";
+     font-style:normal;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+     color: rgba(255, 255, 255, 0.5);
+}
+
+.top_pic_box .nav_action {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 30rpx;
+    text-align: center;
+    overflow: hidden;
+}
+.top_pic_box .nav_action .option {
+    color: #fff;
+    flex: 1;
+}
+
+
+
+
+
+
+
+
+.content{
+    background: #fafafa;
+}
+
+.content .filter {
+    height: 90rpx;
+    line-height: 90rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 32rpx
+    overflow: hidden;
+    border-bottom: 1rpx solid #eee;
+}
+
+.content .filter .play_all{
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+.content .filter .play_all .iconfont{
+    color: #666;
+}
+
+.content .filter .iconfont {
+    vertical-align: middle;
+}
+
+.content .filter .play_icon {
+  font-size: 50rpx;
+  margin: 0 20rpx;
+}
+
+.content .filter .multiselect {
+    float: right;
+    padding: 0 20rpx;
+    font-size: 30rpx;
+}
+
+
+.content .list{
+    overflow: hidden;
+}
+.content .list.mb100{
+    margin-bottom: 100rpx;
+}
+
+.content .list .item{
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+}
+
+.content .list .item .warpper,
+.content .list .item .middle{
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+.content .list .item .middle{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #eee;
+    height: 100rpx;
+    width: 550rpx;
+    overflow: hidden;
+}
+
+.content .list .item .right,
+.content .list .item .left{
+    width: 100rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    color: #999;
+}
+
+.content .list .item .left .iconfont {
+    font-size: 40rpx;
+    color: #8fdac6;
+}
+
+.content .list .item .right{
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #eee;
+}
+.content .list .item .right .iconfont{
+    font-size: 32rpx;
+}
+.list .item .middle .m_name {
+    line-height: 60rpx;
+    font-size: 30rpx;
+    width: 100%;
+    color:#333;
+}
+
+.list .item .middle .u_name {
+    line-height: 40rpx;
+    font-size: 24rpx;
+    color: #999;
+    width: 100%;
+}
+
+
+
+
+
+
+
